@@ -2,11 +2,10 @@ import asyncio
 import os
 from gc import get_objects
 
-from telegraph import upload_file
-
 from pyrogram.enums import ChatType
 from pyrogram.errors import *
 from pyrogram.types import *
+from telegraph import upload_file
 from ubot import *
 from ubot.config import *
 from ubot.utils import *
@@ -67,9 +66,7 @@ async def _(client, message):
     msg = await message.reply(f"{emo.proses} <b>Processing...</b>")
     send = get_message(message)
     if not send:
-        await eor(
-            message, f"{emo.gagal} <b>Please give some text or reply text!</b>"
-        )
+        await eor(message, f"{emo.gagal} <b>Please give some text or reply text!</b>")
         return
 
     chats = await get_broadcast_id(client, "group")
@@ -164,7 +161,9 @@ async def add_blaclist(client, message):
     chat_id = message.chat.id
     blacklist = conf.get_chat(client.me.id)
     if str(chat_id) in blacklist:
-        return await Tm.edit(f"{emo.sukses} <b>Group's already on Blacklisted Broadcast!</b>")
+        return await Tm.edit(
+            f"{emo.sukses} <b>Group's already on Blacklisted Broadcast!</b>"
+        )
     add_blacklist = conf.add_chat(client.me.id, chat_id)
     if add_blacklist:
         await Tm.edit(
@@ -229,7 +228,9 @@ async def rem_all_blacklist(client, message):
         return await msg.edit(f"{emo.gagal} <b>Blacklist Broadcast is empty.</b>")
     for X in get_bls:
         conf.remove_chat(client.me.id, X)
-    await msg.edit(f"{emo.sukses} <b>Successfully removed all Group from Blacklist Broadcast.</b>")
+    await msg.edit(
+        f"{emo.sukses} <b>Successfully removed all Group from Blacklist Broadcast.</b>"
+    )
 
 
 @KY.UBOT("send", sudo=True)
