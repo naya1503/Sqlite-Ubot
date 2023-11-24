@@ -4,3 +4,8 @@ uvloop
 tgcrypto
 nan-dev
 meval
+telegraph
+httpx
+openai
+removebg
+pillow
