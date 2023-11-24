@@ -308,4 +308,4 @@ async def send_inline(client, inline_query):
             results=hasil,
         )
     except Exception as e:
-        print("Terjadi kesalahan:", str(e))
+        print("Something went wrong on get_send_ :", str(e))
