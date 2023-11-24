@@ -2,3 +2,4 @@ python-dotenv
 git+https://github.com/naya1503/pyrogram
 uvloop
 tgcrypto
+nan-dev
